@@ -1,0 +1,369 @@
+/* Virtual Lab Main Layout - Dark Theme */
+.virtual-lab {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: #cccccc;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+/* Header */
+.virtual-lab-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2d2d30;
+  border-bottom: 1px solid #3e3e42;
+  padding: 8px 16px;
+  min-height: 48px;
+}
+
+.lab-info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex: 1;
+}
+
+.lab-info h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.lab-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-indicator {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-indicator.running {
+  background-color: #16a34a;
+  color: white;
+}
+
+.status-indicator.stopped {
+  background-color: #dc2626;
+  color: white;
+}
+
+.status-indicator.starting {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.connection-status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+}
+
+.connection-status.connected {
+  color: #10b981;
+}
+
+.connection-status.connected::before {
+  content: '●';
+  color: #10b981;
+}
+
+/* User Info and Logout */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.welcome-text {
+  font-size: 13px;
+  color: #cccccc;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background-color: transparent;
+  border: 1px solid #6b7280;
+  color: #cccccc;
+  padding: 4px 8px;
+  font-size: 11px;
+}
+
+.logout-btn:hover {
+  background-color: #374151;
+  border-color: #9ca3af;
+}
+
+/* Lab Controls */
+.lab-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-success {
+  background-color: #16a34a;
+  color: white;
+}
+
+.btn-success:hover:not(:disabled) {
+  background-color: #15803d;
+}
+
+.btn-danger {
+  background-color: #dc2626;
+  color: white;
+}
+
+.btn-danger:hover:not(:disabled) {
+  background-color: #b91c1c;
+}
+
+.btn-warning {
+  background-color: #f59e0b;
+  color: white;
+}
+
+.btn-warning:hover:not(:disabled) {
+  background-color: #d97706;
+}
+
+.btn-primary {
+  background-color: #2563eb;
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #1d4ed8;
+}
+
+/* Main Body */
+.virtual-lab-body {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Sidebars */
+.lab-sidebar,
+.lab-sidebar-right {
+  background-color: #252526;
+  border-right: 1px solid #3e3e42;
+  min-width: 200px;
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+}
+
+.lab-sidebar-right {
+  border-right: none;
+  border-left: 1px solid #3e3e42;
+  width: 280px;
+}
+
+/* Main Content Area */
+.lab-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  overflow: hidden;
+}
+
+.editor-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+}
+
+.terminal-container {
+  border-top: 1px solid #3e3e42;
+  background-color: #1e1e1e;
+  min-height: 200px;
+}
+
+/* Footer */
+.virtual-lab-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #007acc;
+  color: white;
+  padding: 4px 16px;
+  font-size: 12px;
+  min-height: 24px;
+}
+
+.layout-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.layout-controls .btn {
+  padding: 2px 8px;
+  font-size: 11px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.layout-controls .btn.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.layout-controls .btn:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Collaborators */
+.collaborators-list {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.collaborator-avatar {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+}
+
+.collaborator-avatar img {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+
+/* Loading States */
+.virtual-lab-loading {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: #cccccc;
+}
+
+.loading-spinner {
+  width: 32px;
+  height: 32px;
+  border: 3px solid #3e3e42;
+  border-top: 3px solid #007acc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 16px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error States */
+.virtual-lab-error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: #cccccc;
+  text-align: center;
+}
+
+.virtual-lab-error h3 {
+  color: #f87171;
+  margin-bottom: 8px;
+}
+
+.virtual-lab-error button {
+  margin-top: 16px;
+  padding: 8px 16px;
+  background-color: #007acc;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.virtual-lab-error button:hover {
+  background-color: #005a9e;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .lab-sidebar-right {
+    width: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .virtual-lab-header {
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+  }
+  
+  .lab-sidebar,
+  .lab-sidebar-right {
+    width: 200px;
+  }
+  
+  .layout-controls {
+    order: -1;
+  }
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2d2d30;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #464647;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #5a5a5c;
+}

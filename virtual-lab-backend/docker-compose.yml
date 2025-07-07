@@ -1,0 +1,70 @@
+version: "3.8"
+
+services:
+  lab-python:
+    build:
+      context: ./lab-base
+      dockerfile: Dockerfile
+    environment:
+      - LANGUAGE=python
+      - MEMORY_LIMIT=512m
+      - CPU_LIMIT=0.5
+    deploy:
+      resources:
+        limits:
+          memory: 512M
+          cpus: "0.5"
+    volumes:
+      - ./workspace:/workspace:rw
+    networks:
+      - lab-network
+    security_opt:
+      - no-new-privileges:true
+    read_only: false
+    tmpfs:
+      - /tmp:size=100M,noexec,nosuid,nodev
+
+  lab-java:
+    build:
+      context: ./lab-base
+      dockerfile: Dockerfile
+    environment:
+      - LANGUAGE=java
+      - MEMORY_LIMIT=1024m
+      - CPU_LIMIT=0.5
+    deploy:
+      resources:
+        limits:
+          memory: 1G
+          cpus: "0.5"
+    volumes:
+      - ./workspace:/workspace:rw
+    networks:
+      - lab-network
+    security_opt:
+      - no-new-privileges:true
+
+  lab-cpp:
+    build:
+      context: ./lab-base
+      dockerfile: Dockerfile
+    environment:
+      - LANGUAGE=cpp
+      - MEMORY_LIMIT=256m
+      - CPU_LIMIT=0.5
+    deploy:
+      resources:
+        limits:
+          memory: 256M
+          cpus: "0.5"
+    volumes:
+      - ./workspace:/workspace:rw
+    networks:
+      - lab-network
+    security_opt:
+      - no-new-privileges:true
+
+networks:
+  lab-network:
+    driver: bridge
+    internal: true # No external network access
